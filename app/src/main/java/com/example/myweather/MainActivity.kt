@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         // http-request-in-android-with-kotlin
         thread {
             val weather = try {
-                NetworkUtil().buildURLForWeather()?.readText()
+                buildURLForWeather()?.readText()
             } catch (e: Exception) {
                 return@thread
             }

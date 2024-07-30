@@ -5,14 +5,13 @@ import android.util.Log
 import java.net.MalformedURLException
 import java.net.URL
 
-class NetworkUtil {
+        private val WEATHERBASE_URL =
+            "https://dataservice.accuweather.com/forecasts/v1/daily/5day/306633"
+        private val PARAM_METRIC = "metric"
+        private val METRIC_VALUE = "true"
+        private val PARAM_API_KEY = "apikey"
+        private val LOGGING_TAG = "URLWECREATED"
 
-    private val WEATHERBASE_URL =
-        "http://dataservice.accuweather.com/forecasts/v1/daily/5day/306633"
-    private val PARAM_METRIC = "metric"
-    private val METRIC_VALUE = "true"
-    private val PARAM_API_KEY = "apikey"
-    private val LOGGING_TAG = "URLWECREATED"
 
     // Function to generate the URL
     fun buildURLForWeather(): URL? {
@@ -35,6 +34,6 @@ class NetworkUtil {
         Log.i(LOGGING_TAG, "buildURLForWeather: $url")
         return url
     }
-}
+
 
 
