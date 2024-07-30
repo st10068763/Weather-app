@@ -11,7 +11,7 @@ import java.net.URL
         private val METRIC_VALUE = "true"
         private val PARAM_API_KEY = "apikey"
         private val LOGGING_TAG = "URLWECREATED"
-
+//
 
     // Function to generate the URL
     fun buildURLForWeather(): URL? {
