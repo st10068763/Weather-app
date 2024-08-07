@@ -28,15 +28,6 @@ class MainActivity : AppCompatActivity() {
             }
             runOnUiThread { consumeJson(weather) }
         }
-
-        // this binds the logo photo to the actual AccuWeather website
-        binding.ivAccuweather.setOnClickListener {
-            val intent = Intent(
-                Intent.ACTION_VIEW,
-                Uri.parse("http://www.accuweather.com/")
-            )
-            startActivity(intent)
-        }
     }
 
     private fun consumeJson(weatherJSON: String?) {
