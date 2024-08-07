@@ -18,8 +18,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <fragment
-        android:id="@+id/fragment_accu_weather_logo"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView2"
         android:name="com.example.myweather.AccuWeatherLogoFg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,4 +27,6 @@
         app:layout_constraintTop_toBottomOf="@id/tvWeather"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
