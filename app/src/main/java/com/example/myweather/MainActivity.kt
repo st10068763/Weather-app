@@ -1,15 +1,19 @@
 package com.example.myweather
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.example.myweather.ExampleJson2KtKotlin
 import com.example.myweather.databinding.ActivityMainBinding
+import com.google.gson.Gson
 import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
+    // Variables to be used
+    val LOGGING_TAG = "weatherDATA"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -22,7 +26,33 @@ class MainActivity : AppCompatActivity() {
             } catch (e: Exception) {
                 return@thread
             }
-            runOnUiThread { binding.tvWeather.text = weather }
+            runOnUiThread { consumeJson(weather) }
+        }
+
+        // this binds the logo photo to the actual AccuWeather website
+        binding.ivAccuweather.setOnClickListener {
+            val intent = Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("http://www.accuweather.com/")
+            )
+            startActivity(intent)
+        }
+    }
+
+    private fun consumeJson(weatherJSON: String?) {
+        if (weatherJSON != null) {
+            val gson = Gson()
+            val weatherData =
+                gson.fromJson<ExampleJson2KtKotlin>(weatherJSON,
+                    ExampleJson2KtKotlin::class.java)
+            for(forecast in weatherData.DailyForecasts) {
+                binding.tvWeather.append(
+                    "Date: " +
+                            forecast.Date?.substring(0, 10) +
+                            " Min: " + forecast.Temperature?.Minimum?.Value +
+                            " Max: " + forecast.Temperature?.Maximum?.Value +
+                            "\n")
+            }
         }
     }
 }

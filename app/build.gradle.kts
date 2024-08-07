@@ -55,6 +55,8 @@ android {
 
 dependencies {
 
+    // New dependency
+    implementation("com.google.code.gson:gson:2.8.6")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
