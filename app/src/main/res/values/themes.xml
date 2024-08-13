@@ -6,4 +6,13 @@
     </style>
 
     <style name="Theme.MyWeather" parent="Base.Theme.MyWeather" />
+
+    <style name="Theme.MyWeather.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.MyWeather.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.MyWeather.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
