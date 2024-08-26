@@ -45,7 +45,7 @@ class DailyForecastsFragment : Fragment() {
                     }
                     if (weatherJSON != null) {
                         val gson = Gson()
-                        val weatherData = gson.fromJson(weatherJSON, ExampleJson2KtKotlin::class.java)
+                        val weatherData = gson.fromJson(weatherJSON, FiveDayForecast::class.java)
                         activity?.runOnUiThread {
                             adapter = MyDailyForecastsRecyclerViewAdapter(weatherData.DailyForecasts)
                         }
